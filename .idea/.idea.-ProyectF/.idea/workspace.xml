@@ -15,6 +15,10 @@
     <setting file="file://$PROJECT_DIR$/../../../Dev/Unity/BulletInstantiate/Assets/Scripts/EnemyShoot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Dev/Unity/EscenaConVectores/Assets/Scripts/EnemyII.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Dev/Unity/PortalColliders/Assets/Scripts/Player.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ArtefactSpawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ButlerSpawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemiesMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MotherSpawn.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/FPSController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -82,6 +86,9 @@
       <workItem from="1658360835573" duration="10989000" />
       <workItem from="1658449137942" duration="4874000" />
       <workItem from="1658480308369" duration="8341000" />
+      <workItem from="1658544435525" duration="1506000" />
+      <workItem from="1658557810561" duration="14479000" />
+      <workItem from="1658574581384" duration="1412000" />
     </task>
     <servers />
   </component>

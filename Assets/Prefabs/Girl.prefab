@@ -2082,10 +2082,11 @@ GameObject:
   - component: {fileID: 8336805534647144084}
   - component: {fileID: 8336805534647144085}
   - component: {fileID: 8336805534647144086}
-  - component: {fileID: 8336805534647144075}
+  - component: {fileID: 664275200}
+  - component: {fileID: 664275201}
   m_Layer: 0
   m_Name: Girl
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2157,7 +2158,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8336805534647144075
+--- !u!114 &664275200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2166,10 +2167,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 8717166616839132205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45f82f885ae52242b279ca41a15e725, type: 3}
+  m_Script: {fileID: 11500000, guid: 25c9896cf00e4fc4284c0cede70a46d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 0}
+--- !u!114 &664275201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717166616839132205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558c26357a09d6f4ba7adb1e74f10db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  girlPref: {fileID: 8717166616839132205}
+  spawner: {fileID: 0}
+  time: 0
 --- !u!1 &8790612635406126972
 GameObject:
   m_ObjectHideFlags: 0

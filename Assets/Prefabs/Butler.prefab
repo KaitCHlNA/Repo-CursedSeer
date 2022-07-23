@@ -1221,10 +1221,11 @@ GameObject:
   - component: {fileID: 3507123533163095366}
   - component: {fileID: 3507123533163095365}
   - component: {fileID: 3507123533163095364}
-  - component: {fileID: 4353476244669800487}
+  - component: {fileID: 5820838737134340145}
+  - component: {fileID: 5348977878757437468}
   m_Layer: 0
   m_Name: Butler
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1296,7 +1297,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4353476244669800487
+--- !u!114 &5820838737134340145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1305,10 +1306,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 4353476244669800486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc353424227027458e60d2745f94b53, type: 3}
+  m_Script: {fileID: 11500000, guid: 25c9896cf00e4fc4284c0cede70a46d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 0}
+--- !u!114 &5348977878757437468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353476244669800486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037b4aec2bec2cd4ea0bfef999439511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  butlerPref: {fileID: 4353476244669800486}
+  spawner: {fileID: 0}
+  time: 0
 --- !u!1 &4426397212574186359
 GameObject:
   m_ObjectHideFlags: 0
