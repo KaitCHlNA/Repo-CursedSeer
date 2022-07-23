@@ -15,7 +15,6 @@
     <setting file="file://$PROJECT_DIR$/../../../Dev/Unity/BulletInstantiate/Assets/Scripts/EnemyShoot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Dev/Unity/EscenaConVectores/Assets/Scripts/EnemyII.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Dev/Unity/PortalColliders/Assets/Scripts/Player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Artefacts.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/FPSController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -82,6 +81,7 @@
       <workItem from="1658083342066" duration="3662000" />
       <workItem from="1658360835573" duration="10989000" />
       <workItem from="1658449137942" duration="4874000" />
+      <workItem from="1658480308369" duration="8341000" />
     </task>
     <servers />
   </component>

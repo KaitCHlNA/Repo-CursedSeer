@@ -1,7 +1,7 @@
 using System.Timers;
 using UnityEngine;
 
-public class Artefacts : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     //1° Enemy
    [SerializeField] private GameObject leopardPref;
@@ -32,12 +32,12 @@ public class Artefacts : MonoBehaviour
     [SerializeField]  private Transform fatherSpawn;
 
     private float time;
-    private float searchingTime;
-    private float endTime;
+    //private float searchingTime;
+    //private float endTime;
 
-    private int numRandom;
+    //private int numRandom;
 
-    private Player playerPosition;
+    //private Player playerPosition;
     
     void Start()
     {
