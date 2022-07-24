@@ -90,4 +90,6 @@ public class EnemiesMove : MonoBehaviour
             anim.SetBool("walking", false);
         }
     }
+    
+    //Agregar void para dejar de moverse por cierto tiempo en caso de ser stuneados por la cámara
 }
