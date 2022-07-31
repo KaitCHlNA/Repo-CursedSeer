@@ -1,118 +1,108 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Random = System.Random;
 
 public class ArtefactsManager : MonoBehaviour
 {
-    public GameObject[] spawnArtefacts;
+    public List<GameObject> artefactsList = new List<GameObject>();
+    public float timeToSpawn = 5f; // idem al spawn de enemigos
 
-   public enum Artefacts
-    {
-        leopard,
-        teddy,
-        gramophone,
-        shoes
-    }
-
-    public Artefacts _artefacts;
-
+    private int currentArtefactIndex;
     private float currentTime;
-    //private int numberOfPrefabsArtef = 4;
-    
-    
+    private bool canSpawn;
+
+    [SerializeField] private Transform leoSpot;
+    [SerializeField] private Transform teddySpot;
+    [SerializeField] private Transform gramSpot;
+    [SerializeField] private Transform shoesSpot;
+
     void Start()
     {
-        spawnArtefacts[0].SetActive(false);
-        spawnArtefacts[1].SetActive(false);
-        spawnArtefacts[2].SetActive(false);
-        spawnArtefacts[3].SetActive(false);
-       
-      
+        artefactsList = new List<GameObject>(Resources.LoadAll<GameObject>("Artefacts"));
+        canSpawn = true;
+        currentTime = 0f;
+        currentArtefactIndex = 0;
     }
-    
+
     void Update()
     {
-        currentTime += Time.deltaTime;
-        //Debug.Log(time);
-        Timer();
-        Spawn();
-        
+        if (canSpawn)
+        {
+            Timer();
+        }
     }
-    
-    
-
+	
     void Timer()
     {
-        if (currentTime >= 5)
-        {
-            _artefacts = Artefacts.leopard;
-        }
+        currentTime += Time.deltaTime;
         
-        if (currentTime >= 10)
+        if (currentTime >= timeToSpawn)
         {
-            _artefacts = Artefacts.teddy;
+            LeoSpawn();
+            currentTime = 0f;
         }
-        
-        if (currentTime >= 15)
+        if (currentTime >= timeToSpawn)
         {
-            _artefacts = Artefacts.gramophone;
+            TeddySpawn();
+            currentTime = 0f;
         }
-        
-        if (currentTime >= 20)
+        if (currentTime >= timeToSpawn)
         {
-            _artefacts = Artefacts.shoes;
+            GramSpawn();
+            currentTime = 0f;
+        }
+        if (currentTime >= timeToSpawn)
+        {
+            ShoesSpawn();
+            currentTime = 0f;
         }
     }
+    
 
-    void Spawn()
+    void LeoSpawn()
     {
-      switch (_artefacts)
-      {
-          case Artefacts.leopard:
-              if (currentTime >= 5)
-              {
-                  spawnArtefacts[0].SetActive(true);
-                  spawnArtefacts[1].SetActive(false);
-                  spawnArtefacts[2].SetActive(false);
-                  spawnArtefacts[3].SetActive(false);
-              }
-
-              break;
-
-          case Artefacts.teddy:
-              if(currentTime >= 10)
-              {
-                  spawnArtefacts[0].SetActive(false);
-                  spawnArtefacts[1].SetActive(true);
-                  spawnArtefacts[2].SetActive(false);
-                  spawnArtefacts[3].SetActive(false);
-              }
-
-              break;
-          
-          case Artefacts.gramophone:
-              if(currentTime >= 15)
-              {
-                  spawnArtefacts[0].SetActive(false);
-                  spawnArtefacts[1].SetActive(false);
-                  spawnArtefacts[2].SetActive(true);
-                  spawnArtefacts[3].SetActive(false);
-              }
-
-              break;
-          
-          case Artefacts.shoes:
-              if(currentTime >= 20)
-              {
-                  spawnArtefacts[0].SetActive(false);
-                  spawnArtefacts[1].SetActive(false);
-                  spawnArtefacts[2].SetActive(false);
-                  spawnArtefacts[3].SetActive(true);
-              }
-
-              break;
-              
-      }
+        Instantiate(artefactsList[currentArtefactIndex], leoSpot.position, Quaternion.identity);
+        currentArtefactIndex++;
+        
+        if (currentArtefactIndex >= artefactsList.Count)
+        {
+            canSpawn = false;
+        }
+    }
+    
+    void TeddySpawn()
+    {
+        Instantiate(artefactsList[currentArtefactIndex], teddySpot.position, Quaternion.identity);
+        currentArtefactIndex++;
+        
+        if (currentArtefactIndex >= artefactsList.Count)
+        {
+            canSpawn = false;
+        }
+    }
+    
+    void GramSpawn()
+    {
+        Instantiate(artefactsList[currentArtefactIndex], gramSpot.position, Quaternion.identity);
+        currentArtefactIndex++;
+        
+        if (currentArtefactIndex >= artefactsList.Count)
+        {
+            canSpawn = false;
+        }
+    }
+    
+    void ShoesSpawn()
+    {
+        Instantiate(artefactsList[currentArtefactIndex], shoesSpot.position, Quaternion.identity);
+        currentArtefactIndex++;
+        
+        if (currentArtefactIndex >= artefactsList.Count)
+        {
+            canSpawn = false;
+        }
     }
 }
+

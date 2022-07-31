@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     //life
-    [SerializeField] float life = 100;
+    public static float life = 100f;
     
     //Player Movement
     public float moveVelocity = 5f;

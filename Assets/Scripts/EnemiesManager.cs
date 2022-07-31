@@ -24,7 +24,7 @@ public class EnemiesManager : MonoBehaviour
 
     void Update()
     {
-        print(currentTime);
+        //print(currentTime);
         if (canSpawn)
         {
             Timer();
@@ -55,7 +55,7 @@ public class EnemiesManager : MonoBehaviour
     
     Vector3 RandomPosition()
     {
-        float numRandom = UnityEngine.Random.Range(0f, 50f);
-        return new Vector3(numRandom, 0f, numRandom);
+        float numRandom = UnityEngine.Random.Range(-150f, 150f);
+        return new Vector3(numRandom, 0, numRandom);
     }
 }

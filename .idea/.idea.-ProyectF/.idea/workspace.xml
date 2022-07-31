@@ -18,6 +18,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ArtefactsManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemiesMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RaycastCam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UILife.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/inLimbo/UI/Button.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/FPSController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -100,6 +101,8 @@
       <workItem from="1659195804769" duration="7967000" />
       <workItem from="1659214481075" duration="6201000" />
       <workItem from="1659223929848" duration="9000" />
+      <workItem from="1659230403248" duration="3097000" />
+      <workItem from="1659233637163" duration="2265000" />
     </task>
     <servers />
   </component>
