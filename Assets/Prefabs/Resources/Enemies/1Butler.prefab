@@ -1222,11 +1222,10 @@ GameObject:
   - component: {fileID: 3507123533163095365}
   - component: {fileID: 3507123533163095364}
   - component: {fileID: 5820838737134340145}
-  - component: {fileID: 5348977878757437468}
   - component: {fileID: 7847820751644974928}
   - component: {fileID: 1320828077}
   m_Layer: 0
-  m_Name: Butler
+  m_Name: 1Butler
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1273,7 +1272,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4353476244669800486}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.74
   m_Height: 2.44
@@ -1312,20 +1311,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 0}
---- !u!114 &5348977878757437468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4353476244669800486}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037b4aec2bec2cd4ea0bfef999439511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  butlerPref: {fileID: 4353476244669800486}
-  time: 0
 --- !u!82 &7847820751644974928
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1333,12 +1318,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4353476244669800486}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9ad58602036ec7b4480f47132f2be3ac, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.355
+  m_Volume: 0.594
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1382,7 +1367,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.505
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -140,10 +140,9 @@ GameObject:
   - component: {fileID: 941826582288809112}
   - component: {fileID: 941826582288809110}
   - component: {fileID: 662631358}
-  - component: {fileID: 662631359}
   - component: {fileID: 2314180853052620308}
   m_Layer: 0
-  m_Name: Mother
+  m_Name: 3Mother
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +175,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457637517591078433}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.54
   m_Height: 2.2
@@ -231,21 +230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 0}
---- !u!114 &662631359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457637517591078433}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e46da79af99c8d74f8639536a3e818dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  motherPref: {fileID: 457637517591078433}
-  spawner: {fileID: 0}
-  time: 0
 --- !u!82 &2314180853052620308
 AudioSource:
   m_ObjectHideFlags: 0
@@ -253,7 +237,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457637517591078433}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5ea6535ae2d30e04d9bc806914aad78b, type: 3}
