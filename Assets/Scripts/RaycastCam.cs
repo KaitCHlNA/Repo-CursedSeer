@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class RaycastCam : MonoBehaviour
 {
-    [SerializeField] private float rayRange;
+    [SerializeField] private float rayRange = 9f;
+    public GameObject effectPref;
+    private GameObject effect;
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -12,9 +15,12 @@ public class RaycastCam : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, rayRange))
             {
-                Debug.Log(hit.collider.name);
+                if (hit.transform.tag == "Enemy")
+                {
+                    effect = Instantiate(effectPref, hit.point, Quaternion.identity);
+                    Destroy(effect, 2f); //lo que dura el stun
+                }
             }
-            
         }
     }
 

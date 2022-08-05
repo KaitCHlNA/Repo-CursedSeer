@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Player : MonoBehaviour
 {
     //life
@@ -15,12 +16,17 @@ public class Player : MonoBehaviour
     float yRotacion;
     [SerializeField] Transform cam;
 
+    [SerializeField] private AudioSource ASPlayer;
     [SerializeField] private AudioClip camSFX;
     [SerializeField] private AudioClip ghostNearSFX;
+
+    public static bool shootSound;
+    
   
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
+        shootSound = true;
     }
     void Update()
     {
@@ -29,9 +35,10 @@ public class Player : MonoBehaviour
     }
     void CamShoot()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (shootSound && Input.GetMouseButtonDown(0))
         {
-            AudioManager.Instance.PlaySound(camSFX);
+            ASPlayer.clip = camSFX;
+            ASPlayer.Play();
         }
     }
     void Move()
@@ -57,18 +64,17 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.transform.tag == "Enemy")
         {
+            ASPlayer.clip = ghostNearSFX;
+            ASPlayer.Play();
             life -= 0.5f; //personalizar por cada personaje
-            Debug.Log("You've been damaged");
             Death();
-            AudioManager.Instance.PlaySound(ghostNearSFX);
-           
         }
     }
     void Death()
     {
         if (life <= 0)
         {
-            SceneManager.LoadScene("Limbo");
+            SceneManager.LoadScene(2);
         }
     }
     

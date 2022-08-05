@@ -59,6 +59,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"bui"
 	"bu"
 	"B"
 ]

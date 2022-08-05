@@ -1,4 +1,6 @@
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class EnemiesMove : MonoBehaviour
 {
@@ -39,26 +41,42 @@ public class EnemiesMove : MonoBehaviour
         {
             case Enemies.butler:
                 Following();
+                //EnemyStuned();
                 damage = 5;
                 break;
             
             case Enemies.girl:
                 Following();
+                //EnemyStuned();
                 damage = 10;
                 break;
             
             case Enemies.mother:
                 Following();
+                //EnemyStuned();
                 damage = 15;
                 break;
             
             case Enemies.father:
                 Following();
+                //EnemyStuned();
                 damage = 20;
                 break;
         }
     }
-    
+   /* void EnemyStuned()
+    {
+        if (RaycastCam.effectActive == false)
+        {
+            Following();
+        } 
+        else if (RaycastCam.effectActive == true)
+        {
+            //transform.LookAt(playerPosition.gameObject.transform);
+            transform.position = Vector3.zero;
+        }
+    }
+    */
     void Following()
     {
         transform.LookAt(playerPosition.gameObject.transform);
@@ -67,10 +85,11 @@ public class EnemiesMove : MonoBehaviour
         EnemyPlayerDistance();
         Anim();
     }
+
     void EnemyPlayerDistance()
     {
         distance = Vector3.Distance(transform.position, playerPosition.gameObject.transform.position);
-        if (distance <= 6)
+        if (distance <= 3)
         {
             speed = 0f;
         }
@@ -90,6 +109,6 @@ public class EnemiesMove : MonoBehaviour
             anim.SetBool("walking", false);
         }
     }
-    
+
     //Agregar void para dejar de moverse por cierto tiempo en caso de ser stuneados por la cámara
 }

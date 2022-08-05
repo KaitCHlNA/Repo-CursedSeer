@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private float currentTime;
+    public static float currentTime;
     
     void Update()
     {
