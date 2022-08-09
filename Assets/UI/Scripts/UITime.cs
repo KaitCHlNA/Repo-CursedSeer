@@ -7,7 +7,7 @@ public class UITime : MonoBehaviour
 
     void Update()
     {
-        textTime.text = "Time: " + Timer.currentTime;
+        textTime.text = "Time: " + Mathf.Round(Timer.currentTime);
         if (Player.life <= 0)
         {
             Timer.currentTime = 0;

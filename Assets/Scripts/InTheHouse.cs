@@ -8,7 +8,7 @@ public class InTheHouse : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip clipInTheHouse;
 
-    private float lessVolume = 0.5f;
+    private float lessVolume = 0.7f;
 
     private void Start()
     {

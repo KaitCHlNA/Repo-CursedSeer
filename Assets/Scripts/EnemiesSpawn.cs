@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
-public class EnemiesManager : MonoBehaviour
+public class EnemiesSpawn : MonoBehaviour
 {
     public List<GameObject> enemiesList = new List<GameObject>();
     public float timeToSpawn = 5f; // acÃ¡ le pones el tiempo inicial que queres que tarde entre Spawn y Spawn

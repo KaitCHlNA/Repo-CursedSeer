@@ -11,14 +11,17 @@ public class ToReadTheLetter : MonoBehaviour
     {
         //obtener componente del efecto de sonido
     }
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider reading)
     {
-        if(reading.gameObject.CompareTag("Player")) _audioSource.Play();
-        _audioSource.pitch = Random.Range(0.8f,1.2f);
+        if (reading.gameObject.CompareTag("Player"))
+        {
+            _audioSource.Play();
+            _audioSource.pitch = Random.Range(0.8f,1.2f);
+            //aparezca un mensaje de press E to interact
+            //NotesDisplay.ShowMessage();
+        }
+        
+        
     }
 }

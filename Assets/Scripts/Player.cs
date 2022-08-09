@@ -6,9 +6,10 @@ public class Player : MonoBehaviour
 {
     //life
     public static float life = 100f;
-    
+
     //Player Movement
     public float moveVelocity = 5f;
+    public float runVelocity = 15f;
     
     //Player Look Rotation
     public float MouseSensibility = 400f; 
@@ -16,31 +17,43 @@ public class Player : MonoBehaviour
     float yRotacion;
     [SerializeField] Transform cam;
 
+    //Sounds
     [SerializeField] private AudioSource ASPlayer;
     [SerializeField] private AudioClip camSFX;
     [SerializeField] private AudioClip ghostNearSFX;
-
     public static bool shootSound;
-    
+   
+    //Flash effect
+    public bool flashActive;
+    public Animator camAnim;
   
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         shootSound = true;
+        flashActive = false;
     }
     void Update()
     {
         CamShoot();
         Move();
+        Death();
+        
+        if (flashActive == true)
+        {
+            flashActive = false;
+        } //fix to flash again
     }
     void CamShoot()
     {
-        if (shootSound && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
+            camAnim.SetBool("ClickOnCam", true);
             ASPlayer.clip = camSFX;
             ASPlayer.Play();
         }
-    }
+    }  //fix to flash again
+    
     void Move()
     {
         float hor = Input.GetAxis("Horizontal");
@@ -57,19 +70,20 @@ public class Player : MonoBehaviour
         yRotacion += mouseX;
         cam.localRotation= Quaternion.Euler(xRotacion,0,0);
         transform.localRotation = Quaternion.Euler(0,yRotacion,0);
-    }
 
-    //damage
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            transform.Translate(new Vector3(hor,0,ver) * runVelocity * Time.deltaTime);
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.transform.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
             ASPlayer.clip = ghostNearSFX;
             ASPlayer.Play();
-            life -= 0.5f; //personalizar por cada personaje
-            Death();
         }
-    }
+    } //sonido de ser dañado
     void Death()
     {
         if (life <= 0)
@@ -77,5 +91,4 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
-    
 }
