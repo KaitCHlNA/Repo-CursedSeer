@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 
-public class Player : MonoBehaviour
+public class PlayerUnityEvent : MonoBehaviour
 {
     //life
     public static float life = 100f;

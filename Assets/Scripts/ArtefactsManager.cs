@@ -60,10 +60,9 @@ public class ArtefactsManager : MonoBehaviour
         }
     }
     
-
     void LeoSpawn()
     {
-        Instantiate(artefactsList[currentArtefactIndex], leoSpot.position, Quaternion.identity);
+        Instantiate(artefactsList[currentArtefactIndex], artefactsList[currentArtefactIndex].transform.position + leoSpot.position, Quaternion.identity);
         currentArtefactIndex++;
         
         if (currentArtefactIndex >= artefactsList.Count)
@@ -73,8 +72,10 @@ public class ArtefactsManager : MonoBehaviour
     }
     
     void TeddySpawn()
-    {
-        Instantiate(artefactsList[currentArtefactIndex], teddySpot.position, Quaternion.identity);
+    { 
+        GameObject go = Instantiate(artefactsList[currentArtefactIndex]);
+        go.transform.position = teddySpot.position;
+        go.transform.rotation = teddySpot.rotation;
         currentArtefactIndex++;
         
         if (currentArtefactIndex >= artefactsList.Count)
@@ -85,7 +86,7 @@ public class ArtefactsManager : MonoBehaviour
     
     void GramSpawn()
     {
-        Instantiate(artefactsList[currentArtefactIndex], gramSpot.position, Quaternion.identity);
+        Instantiate(artefactsList[currentArtefactIndex], artefactsList[currentArtefactIndex].transform.position + gramSpot.position, Quaternion.identity);
         currentArtefactIndex++;
         
         if (currentArtefactIndex >= artefactsList.Count)
@@ -96,7 +97,7 @@ public class ArtefactsManager : MonoBehaviour
     
     void ShoesSpawn()
     {
-        Instantiate(artefactsList[currentArtefactIndex], shoesSpot.position, Quaternion.identity);
+        Instantiate(artefactsList[currentArtefactIndex],artefactsList[currentArtefactIndex].transform.position + shoesSpot.position, Quaternion.identity);
         currentArtefactIndex++;
         
         if (currentArtefactIndex >= artefactsList.Count)

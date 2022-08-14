@@ -10,7 +10,8 @@ public class GhostsMove : MonoBehaviour
     [SerializeField] private Animator anim;
 
     //agregar booleano para el raycast.
-     public static bool beStuned;
+     public bool beStuned;
+     public bool followPlayer;
 
     void Start()
     {
@@ -21,9 +22,7 @@ public class GhostsMove : MonoBehaviour
 
     void Update()
     {
-        
-        FollowPlayer();
-      /*  if (beStuned)
+        if (beStuned == false)
         {
             FollowPlayer();
         } 
@@ -31,16 +30,25 @@ public class GhostsMove : MonoBehaviour
         {
             Stuned();
         }
-        */
+       
     }
 
     void Stuned()
     {
-        transform.position = Vector3.Lerp(transform.position, playerPosition.gameObject.transform.position, 0 * Time.deltaTime);
+        Debug.Log("quieto");
+        Invoke("StopStuned", 2f);
+        //transform.position = Vector3.Lerp(transform.position, playerPosition.gameObject.transform.position, 0 * Time.deltaTime);
         //transform.LookAt(playerPosition.gameObject.transform);
     }
+    
+    void StopStuned()
+    {
+        beStuned = false;
+    }
+    
     void FollowPlayer()
     { 
+        
         transform.LookAt(playerPosition.gameObject.transform);
         transform.position = Vector3.Lerp(transform.position, playerPosition.gameObject.transform.position, speed * Time.deltaTime);
         GhostPlayerDistance();

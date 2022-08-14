@@ -26,6 +26,7 @@ public class RaycastCam : MonoBehaviour
             {
                 if(hit.transform.tag == "Enemy")
                 {
+                    hit.transform.gameObject.GetComponent<GhostsMove>().beStuned = true;
                     //particleEffect = true;
                     effect = Instantiate(effectPref, hit.point, Quaternion.identity);
                     Destroy(effect, 2f);
