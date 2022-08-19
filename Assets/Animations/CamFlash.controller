@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: ClickOnCam
+    m_ConditionEvent: clickOnCam
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2465784194422500053}
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f7c214821e797ed4b8b6a5bfdaf49fb7, type: 2}
+  m_Motion: {fileID: 7400000, guid: fa75887f9f5dad34988e99c0245a7f6a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -86,7 +86,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: ClickOnCam
+    m_ConditionEvent: clickOnCam
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3335670885269463354}
@@ -111,7 +111,7 @@ AnimatorController:
   m_Name: CamFlash
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: ClickOnCam
+  - m_Name: clickOnCam
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

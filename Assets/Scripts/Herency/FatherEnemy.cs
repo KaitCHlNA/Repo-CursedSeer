@@ -10,7 +10,7 @@ public class FatherEnemy : BaseEnemy
     {
         BaseEnemy enemy4 = new BaseEnemy();
         //enemy4.name = "Father";
-        enemy4.damage = 2f;
+        enemy4.damage = 4f;
     }
 
     void OnTriggerStay(Collider other)
@@ -18,6 +18,15 @@ public class FatherEnemy : BaseEnemy
         if (other.CompareTag("Player"))
         {
             Player.life -= damage * Time.deltaTime;
+          //  _chromaticAberration.intensity.value = .8f;
+        }
+    }
+
+    private void OnTriggerExit(Collider exit)
+    {
+        if (exit.CompareTag("Player"))
+        {
+         //   _chromaticAberration.intensity.value = 0f;
         }
     }
 }

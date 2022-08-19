@@ -16,6 +16,7 @@ public class Laugh : MonoBehaviour
     {
         audLaugh.Play();
         print("A sound appeared, press right click to mute the sound - " + this);
+        Destroy(audLaugh, 5f);
     }
 
     void StopLaugh()

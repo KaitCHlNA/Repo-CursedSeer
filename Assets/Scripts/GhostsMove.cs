@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class GhostsMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 0.5f;
-    [SerializeField] private float distance = 2f;
+    [SerializeField] private float speed;
+    [SerializeField] private float distance;
     [SerializeField] private Player playerPosition;
     [SerializeField] private Animator anim;
-
-    //agregar booleano para el raycast.
+    
      public bool beStuned;
      public bool followPlayer;
 
@@ -17,7 +16,7 @@ public class GhostsMove : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         playerPosition = FindObjectOfType<Player>();
-        //beStuned = false;
+        
     }
 
     void Update()
@@ -35,10 +34,8 @@ public class GhostsMove : MonoBehaviour
 
     void Stuned()
     {
-        Debug.Log("quieto");
         Invoke("StopStuned", 2f);
-        //transform.position = Vector3.Lerp(transform.position, playerPosition.gameObject.transform.position, 0 * Time.deltaTime);
-        //transform.LookAt(playerPosition.gameObject.transform);
+        anim.SetBool("walking", false);
     }
     
     void StopStuned()
@@ -57,13 +54,13 @@ public class GhostsMove : MonoBehaviour
     void GhostPlayerDistance()
     {
         distance = Vector3.Distance(transform.position, playerPosition.gameObject.transform.position);
-        if (distance <= 2)
+        if (distance <= 2f)
         {
             speed = 0f;
         }
         else
         {
-            speed = 0.1f;
+            speed = .8f;
         }
     }
     void GhostAnim()

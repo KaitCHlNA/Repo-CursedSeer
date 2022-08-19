@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 
 public class Player : MonoBehaviour
@@ -26,34 +28,49 @@ public class Player : MonoBehaviour
     //Flash effect
     public bool flashActive;
     public Animator camAnim;
+    
+    //Post Processing Effects
+    public PostProcessVolume damageVol;
+    private Grain _grain;
+    private ChromaticAberration _chromaticAberration;
   
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
         shootSound = true;
         flashActive = false;
+        
+        //PPE Check
+        damageVol.profile.TryGetSettings(out _grain);
+        damageVol.profile.TryGetSettings(out _chromaticAberration);
+        
     }
     void Update()
     {
         CamShoot();
         Move();
         Death();
-        
+        /*
         if (flashActive == true)
         {
             flashActive = false;
-        } //fix to flash again
+        } 
+        */
     }
     void CamShoot()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            camAnim.SetBool("ClickOnCam", true);
+            camAnim.SetBool("clickOnCam", true);
             ASPlayer.clip = camSFX;
             ASPlayer.Play();
         }
-    }  //fix flash per click
-    
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            camAnim.SetBool("clickOnCam", false);
+        }
+    }
     void Move()
     {
         float hor = Input.GetAxis("Horizontal");
@@ -76,14 +93,24 @@ public class Player : MonoBehaviour
             transform.Translate(new Vector3(hor,0,ver) * runVelocity * Time.deltaTime);
         }
     }
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
             ASPlayer.clip = ghostNearSFX;
             ASPlayer.Play();
+            _grain.intensity.value = .9f;
         }
-    } //sonido de ser dañado
+    }
+    private void OnTriggerExit(Collider exit)
+    {
+        if (exit.CompareTag("Enemy"))
+        {
+            _grain.intensity.value = 0f;
+        }
+    }
+
     void Death()
     {
         if (life <= 0)

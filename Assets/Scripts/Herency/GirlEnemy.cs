@@ -10,7 +10,7 @@ public class GirlEnemy : BaseEnemy
     {
         BaseEnemy enemy2 = new BaseEnemy();
         //enemy2.name = "Girl";
-        enemy2.damage = 1f;
+        enemy2.damage = 2f;
     }
 
     void OnTriggerStay(Collider other)
@@ -18,6 +18,15 @@ public class GirlEnemy : BaseEnemy
         if (other.CompareTag("Player"))
         {
             Player.life -= damage * Time.deltaTime;
+          //  _chromaticAberration.intensity.value = .5f;
+        }
+    }
+
+    private void OnTriggerExit(Collider exit)
+    {
+        if (exit.CompareTag("Player"))
+        {
+          //  _chromaticAberration.intensity.value = 0f;
         }
     }
 }
