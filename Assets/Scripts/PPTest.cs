@@ -3,19 +3,24 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class PPTest : MonoBehaviour
 {
-    public PostProcessVolume damageVol;
-    private Grain _grain;
-    private ChromaticAberration _chromaticAberration;
-    
+    public PostProcessVolume inputAmbientOcl;
+    private AmbientOcclusion _ambientOcclusion;
+
     void Start()
     {
-        damageVol.profile.TryGetSettings(out _grain);
-        damageVol.profile.TryGetSettings(out _chromaticAberration);
+        inputAmbientOcl.profile.TryGetSettings(out _ambientOcclusion);
     }
 
     
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _ambientOcclusion.intensity.value = 2.15f;
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            _ambientOcclusion.intensity.value = 0f;
+        }
     }
 }

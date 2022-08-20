@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     public PostProcessVolume damageVol;
     private Grain _grain;
     private ChromaticAberration _chromaticAberration;
+
+    [SerializeField] private Light luzTest;
   
     void Start()
     {
@@ -61,14 +63,16 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            camAnim.SetBool("clickOnCam", true);
+           // camAnim.SetBool("clickOnCam", true);
+           luzTest.intensity = 1000;
             ASPlayer.clip = camSFX;
             ASPlayer.Play();
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            camAnim.SetBool("clickOnCam", false);
+           // camAnim.SetBool("clickOnCam", false);
+            luzTest.intensity = 0;
         }
     }
     void Move()
