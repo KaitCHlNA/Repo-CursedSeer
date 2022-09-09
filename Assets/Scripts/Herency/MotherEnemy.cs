@@ -1,16 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class MotherEnemy : BaseEnemy
 {
     void Start()
     {
-        BaseEnemy enemy3 = new BaseEnemy();
-        //enemy3.name = "Mother";
-        enemy3.damage = 3f;
+        damage = 30f;
+        
+        GameObject go = GameObject.Find("PPE PlayerDamage");
+        damageVolume = go.GetComponent<PostProcessVolume>(); 
+        
+        GetCompSettings();
     }
 
     void OnTriggerStay(Collider other)
@@ -18,7 +18,7 @@ public class MotherEnemy : BaseEnemy
         if (other.CompareTag("Player"))
         {
             Player.life -= damage * Time.deltaTime;
-          //  _chromaticAberration.intensity.value = .6f;
+           _chromaticAberration.intensity.value = .6f;
         }
     }
 
@@ -26,7 +26,7 @@ public class MotherEnemy : BaseEnemy
     {
         if (exit.CompareTag("Player"))
         {
-         //   _chromaticAberration.intensity.value = 0f;
+          _chromaticAberration.intensity.value = 0f;
         }
     }
 }

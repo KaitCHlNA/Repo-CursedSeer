@@ -1,24 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class GirlEnemy : BaseEnemy
 {
     void Start()
     {
-        BaseEnemy enemy2 = new BaseEnemy();
-        //enemy2.name = "Girl";
-        enemy2.damage = 2f;
+        damage = 20f;
+        
+        GameObject go = GameObject.Find("PPE PlayerDamage");
+        damageVolume = go.GetComponent<PostProcessVolume>();
+        
+        GetCompSettings();
     }
 
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Player.life -= damage * Time.deltaTime;
-          //  _chromaticAberration.intensity.value = .5f;
+            Player.life -= damage * Time.deltaTime; 
+            _chromaticAberration.intensity.value = .5f;
         }
     }
 
@@ -26,7 +26,7 @@ public class GirlEnemy : BaseEnemy
     {
         if (exit.CompareTag("Player"))
         {
-          //  _chromaticAberration.intensity.value = 0f;
+           _chromaticAberration.intensity.value = 0f;
         }
     }
 }

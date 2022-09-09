@@ -11,10 +11,10 @@ public class UILife : MonoBehaviour
     {
         currentLife = Player.life;
         lifeBar.fillAmount = currentLife / maxLife;
-
+/*
         if (Player.life <= 0)
         {
             Player.life = 100;
-        }
+        }*/
     }
 }

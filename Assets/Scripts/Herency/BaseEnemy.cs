@@ -5,14 +5,12 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class BaseEnemy : MonoBehaviour
 {
-	//public string name;
 	public float damage;
-	public PostProcessVolume damageVol;
+	public PostProcessVolume damageVolume;
 	public ChromaticAberration _chromaticAberration;
-	
-	void Start()
+
+	public void GetCompSettings()
 	{
-		damageVol.profile.TryGetSettings(out _chromaticAberration);
+		damageVolume.profile.TryGetSettings(out _chromaticAberration);
 	}
-	
 }

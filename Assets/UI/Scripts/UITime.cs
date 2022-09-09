@@ -7,10 +7,10 @@ public class UITime : MonoBehaviour
 
     void Update()
     {
-        textTime.text = "Time: " + Mathf.Round(Timer.currentTime);
+        textTime.text = "Time: " + Mathf.Round(Timer.timeInEntireGame);
         if (Player.life <= 0)
         {
-            Timer.currentTime = 0;
+            Timer.timeInEntireGame = 0;
         }
     }
 }

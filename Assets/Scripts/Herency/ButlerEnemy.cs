@@ -1,26 +1,16 @@
-using System;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 public class ButlerEnemy : BaseEnemy
 {
-    public GameObject objWithFatherScript;
-    public BaseEnemy go;
     void Start()
     {
-        BaseEnemy enemy1 = new BaseEnemy();
-        //enemy1.name = "Butler";
-        enemy1.damage = 1f;
+        damage = 10f;
         
+        GameObject go = GameObject.Find("PPE PlayerDamage");
+        damageVolume = go.GetComponent<PostProcessVolume>(); 
         
-        /*
-      
-        go = FindObjectOfType<BaseEnemy>();
-        
-        damageVol = objWithFatherScript.GetComponent<PostProcessVolume>();
-        damageVol.profile.TryGetSettings(out _chromaticAberration);
-         */
-
+        GetCompSettings();
     }
 
     void OnTriggerStay(Collider other)
@@ -28,15 +18,15 @@ public class ButlerEnemy : BaseEnemy
         if (other.CompareTag("Player"))
         {
             Player.life -= damage * Time.deltaTime;
-          //  _chromaticAberration.intensity.value = .4f;
+            _chromaticAberration.intensity.value = .4f;
         }
     }
 
-    private void OnTriggerExit(Collider exit)
+    void OnTriggerExit(Collider exit)
     {
         if (exit.CompareTag("Player"))
         {
-          //  _chromaticAberration.intensity.value = 0f;
+            _chromaticAberration.intensity.value = 0f;
         }
     }
 }

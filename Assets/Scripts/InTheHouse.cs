@@ -6,29 +6,26 @@ using UnityEngine;
 public class InTheHouse : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip clipInTheHouse;
+    [SerializeField] private AudioSource audEnviroment;
 
-    private float lessVolume = 0.7f;
-
-    private void Start()
-    {
-        _audioSource.clip = clipInTheHouse;
-    }
-
+    private float lessVolume = 0.15f;
+    
     private void OnTriggerEnter(Collider enter)
     {
-        if (enter.gameObject.transform.tag == "Enter")
+        if (enter.CompareTag("Player"))
         {
             _audioSource.Play();
-            //controlar volume al salir de casa
+            audEnviroment.volume = lessVolume;
         }
     }
 
     private void OnTriggerExit(Collider exit)
     {
-        if (exit.gameObject.transform.tag == "Exit")
+        if (exit.CompareTag("Player"))
         {
-            _audioSource.volume = lessVolume;
+            Vector3 newPos = new Vector3(0, -10, 0);
+            gameObject.transform.position = newPos;
         }
     }
+    
 }

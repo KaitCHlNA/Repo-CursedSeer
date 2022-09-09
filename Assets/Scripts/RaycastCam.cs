@@ -9,16 +9,9 @@ public class RaycastCam : MonoBehaviour
     public GameObject effectPref;
     private GameObject effect;
     private bool particleEffect;
-
-    void Start()
-    {
-        //particleEffect = false;
-    }
     
     void Update()
     {
-       // StunedDuration();
-        
         if(Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -29,24 +22,14 @@ public class RaycastCam : MonoBehaviour
                     hit.transform.gameObject.GetComponent<GhostsMove>().beStuned = true;
                     //particleEffect = true;
                     effect = Instantiate(effectPref, hit.point, Quaternion.identity);
-                    Destroy(effect, 2f);
+                    Destroy(effect, 5f);
                 }
             }
         }
     }
-/*
-    void StunedDuration()
-    {
-        if(particleEffect)
-        {
-            GhostsMove.beStuned = false;
-        }
-        else
-        {
-            GhostsMove.beStuned = true;
-        }
-    }
-*/
+    
+    
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

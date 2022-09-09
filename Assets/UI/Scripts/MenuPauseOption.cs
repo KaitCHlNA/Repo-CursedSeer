@@ -12,7 +12,7 @@ public class MenuPauseOption : MonoBehaviour
     
     public void ClickOnYes()
     {
-        SceneManager.LoadScene(0);
+        Application.Quit();
     }
     
     public void ClickOnNo()

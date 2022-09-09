@@ -6,7 +6,7 @@ public class MenuGame : MonoBehaviour
 {
    public void PlayGame()
    {
-      SceneManager.LoadScene(1);
+      Invoke("ChangeScene", 1f);
    }
    
    //VOID PARA LAS OPCIONES
@@ -15,4 +15,11 @@ public class MenuGame : MonoBehaviour
    {
       Application.Quit();
    }
+
+   private void ChangeScene()
+   {
+      SceneManager.LoadScene(1);
+   }
 }
+
+

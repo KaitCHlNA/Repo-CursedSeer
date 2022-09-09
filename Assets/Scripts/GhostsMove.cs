@@ -10,13 +10,15 @@ public class GhostsMove : MonoBehaviour
     [SerializeField] private Animator anim;
     
      public bool beStuned;
-     public bool followPlayer;
+     public bool isStuning;
+     private bool followPlayer;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         playerPosition = FindObjectOfType<Player>();
-        
+        isStuning = false;
+
     }
 
     void Update()
@@ -25,7 +27,7 @@ public class GhostsMove : MonoBehaviour
         {
             FollowPlayer();
         } 
-        else if (beStuned == true)
+        else if (beStuned && isStuning == false)
         {
             Stuned();
         }
@@ -34,13 +36,15 @@ public class GhostsMove : MonoBehaviour
 
     void Stuned()
     {
-        Invoke("StopStuned", 2f);
+        Invoke("StopStuned", 5f);
+        isStuning = true;
         anim.SetBool("walking", false);
     }
     
     void StopStuned()
     {
         beStuned = false;
+        isStuning = false;
     }
     
     void FollowPlayer()
@@ -60,12 +64,12 @@ public class GhostsMove : MonoBehaviour
         }
         else
         {
-            speed = .8f;
+            speed = .3f;
         }
     }
     void GhostAnim()
     {
-        if (transform.position != Vector3.zero && distance >= 3)
+        if (transform.position != Vector3.zero && distance >= 2)
         {
             anim.SetBool("walking", true);
         }

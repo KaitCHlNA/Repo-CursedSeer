@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class MouseScript : MonoBehaviour
 {
-    void Start()
+    public void MouseActive()
     {
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void MouseDissable()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

@@ -2,6 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
+using Random = UnityEngine.Random;
+using Range = UnityEngine.SocialPlatforms.Range;
 
 
 public class Player : MonoBehaviour
@@ -12,98 +16,98 @@ public class Player : MonoBehaviour
     //Player Movement
     public float moveVelocity = 5f;
     public float runVelocity = 15f;
+    public Rigidbody rb;
     
     //Player Look Rotation
-    public float MouseSensibility = 400f; 
+    public float MouseSensibility = 250f;
     float xRotacion; 
     float yRotacion;
     [SerializeField] Transform cam;
 
     //Sounds
-    [SerializeField] private AudioSource ASPlayer;
-    [SerializeField] private AudioClip camSFX;
-    [SerializeField] private AudioClip ghostNearSFX;
-    public static bool shootSound;
-   
+    public AudioSource camShootSound;
+    public static bool canShoot;
+    
     //Flash effect
-    public bool flashActive;
     public Animator camAnim;
     
     //Post Processing Effects
     public PostProcessVolume damageVol;
     private Grain _grain;
     private ChromaticAberration _chromaticAberration;
-
-    [SerializeField] private Light luzTest;
-  
+    
+    
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        shootSound = true;
-        flashActive = false;
-        
+        Cursor.lockState = CursorLockMode.Locked;
+        camShootSound = GetComponent<AudioSource>();
+        canShoot = true;
+
+        life = 100f;
+
         //PPE Check
         damageVol.profile.TryGetSettings(out _grain);
         damageVol.profile.TryGetSettings(out _chromaticAberration);
-        
     }
+    
     void Update()
     {
-        CamShoot();
+        if (canShoot)
+        {
+            CamShoot();
+        }
         Move();
         Death();
-        /*
-        if (flashActive == true)
-        {
-            flashActive = false;
-        } 
-        */
     }
+
     void CamShoot()
     {
         if (Input.GetMouseButtonDown(0))
         {
-           // camAnim.SetBool("clickOnCam", true);
-           luzTest.intensity = 1000;
-            ASPlayer.clip = camSFX;
-            ASPlayer.Play();
+            camAnim.SetBool("clickOnCam", true);
+            camShootSound.Play();
+            camShootSound.pitch = Random.Range(.9f, 1.1f);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-           // camAnim.SetBool("clickOnCam", false);
-            luzTest.intensity = 0;
+            camAnim.SetBool("clickOnCam", false);
+            //canShoot = false;
         }
     }
     void Move()
     {
-        float hor = Input.GetAxis("Horizontal");
-        float ver = Input.GetAxis("Vertical");
-
-        float mouseX = Input.GetAxis("Mouse X") * MouseSensibility * Time.deltaTime;
+        Vector3 hor = Input.GetAxis("Horizontal") * transform.right;
+        Vector3 ver = Input.GetAxis("Vertical") * transform.forward;
+        
+        float mouseX = Input.GetAxis("Mouse X") * MouseSensibility * Time.deltaTime; 
         float mouseY = Input.GetAxis("Mouse Y") * MouseSensibility * Time.deltaTime;
-
-        transform.Translate(new Vector3(hor,0,ver) * moveVelocity * Time.deltaTime);
-
+       
+       var y = rb.velocity.y;
+       rb.velocity = (hor + ver).normalized * moveVelocity;
+       rb.velocity = new Vector3(rb.velocity.x, y, rb.velocity.z);
+       
         xRotacion -= mouseY;
         xRotacion = Mathf.Clamp(xRotacion, -70,70);
 
         yRotacion += mouseX;
         cam.localRotation= Quaternion.Euler(xRotacion,0,0);
         transform.localRotation = Quaternion.Euler(0,yRotacion,0);
-
+        
+        
+        //RUN
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            transform.Translate(new Vector3(hor,0,ver) * runVelocity * Time.deltaTime);
+            y = rb.velocity.y;
+           rb.velocity = (hor + ver).normalized * runVelocity;
+           rb.velocity = new Vector3(rb.velocity.x, y, rb.velocity.z);
         }
     }
-    
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            ASPlayer.clip = ghostNearSFX;
-            ASPlayer.Play();
             _grain.intensity.value = .9f;
         }
     }
@@ -114,7 +118,6 @@ public class Player : MonoBehaviour
             _grain.intensity.value = 0f;
         }
     }
-
     void Death()
     {
         if (life <= 0)

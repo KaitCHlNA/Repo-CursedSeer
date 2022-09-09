@@ -15,22 +15,21 @@
     <setting file="file://$PROJECT_DIR$/../../../Dev/Unity/BulletInstantiate/Assets/Scripts/EnemyShoot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Dev/Unity/EscenaConVectores/Assets/Scripts/EnemyII.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Dev/Unity/PortalColliders/Assets/Scripts/Player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ArtefactsManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemiesSpawn.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/Laugh.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/PlayerUnityEvent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/TextAppear.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/TriggerUnityEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyLastArtefact.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EndingScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GhostsMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Herency/FatherEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Herency/GirlEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Herency/MotherEnemy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NotesDisplay.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PPTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LanguageManagerINGAME.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LanguageManagerLIMBO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadSceneMainScene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Notes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RaycastCam.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TestReflexRT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/ButtonSound.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/UShouldLeaveText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/inLimbo/UI/Button.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/DestroyArtefact.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,6 +55,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Coder/Proyectos/Build First Proyect 0.1\Cursed Seer.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\kaits\Documents\Coder\Proyectos\Build First Proyect 0.1" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.4f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\kaits\Documents\GitHub\Clon Repo--ProyectF\-ProyectF&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -130,6 +137,33 @@
       <workItem from="1660871672492" duration="9767000" />
       <workItem from="1660950584229" duration="2064000" />
       <workItem from="1661013315554" duration="3000" />
+      <workItem from="1661013488569" duration="4554000" />
+      <workItem from="1661028453631" duration="6893000" />
+      <workItem from="1661219038790" duration="4623000" />
+      <workItem from="1661305083618" duration="7923000" />
+      <workItem from="1661368249035" duration="1407000" />
+      <workItem from="1661471815807" duration="2443000" />
+      <workItem from="1661553582681" duration="2000" />
+      <workItem from="1661993034199" duration="1687000" />
+      <workItem from="1662057445405" duration="338000" />
+      <workItem from="1662067986012" duration="223000" />
+      <workItem from="1662068263378" duration="7886000" />
+      <workItem from="1662106706212" duration="427000" />
+      <workItem from="1662152373930" duration="2155000" />
+      <workItem from="1662227598969" duration="9478000" />
+      <workItem from="1662321153839" duration="703000" />
+      <workItem from="1662418566427" duration="7765000" />
+      <workItem from="1662445043212" duration="4814000" />
+      <workItem from="1662522634958" duration="4918000" />
+      <workItem from="1662607415013" duration="3008000" />
+      <workItem from="1662610685050" duration="3397000" />
+      <workItem from="1662615074361" duration="2346000" />
+      <workItem from="1662617479841" duration="15949000" />
+      <workItem from="1662636220402" duration="6000" />
+      <workItem from="1662636254001" duration="269000" />
+      <workItem from="1662636933649" duration="626000" />
+      <workItem from="1662677582299" duration="5703000" />
+      <workItem from="1662697511971" duration="13382000" />
     </task>
     <servers />
   </component>
